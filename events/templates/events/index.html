@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Events</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .event-card {
+            background: white;
+            padding: 15px;
+            margin: 15px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .event-info {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        input {
+            padding: 8px;
+            margin-top: 10px;
+            width: 60%;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/">Home</a> | 
+<a href="/registered/">Registered</a>
+<hr>
+
+<h1>🎓 College Events</h1>
+
+{% for event in events %}
+    <div class="event-card">
+        <div class="event-title">{{ event.name }}</div>
+
+        <div class="event-info">📅 {{ event.date }}</div>
+        <div class="event-info">📍 {{ event.location }}</div>
+        <div class="event-info">📝 {{ event.description }}</div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="student_name" placeholder="Enter your name" required>
+            <input type="hidden" name="event_id" value="{{ event.id }}">
+            <br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% endfor %}
+
+</body>
+</html>

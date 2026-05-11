@@ -40,13 +40,23 @@
 </div>
 
 
-<h1>📋 Registered Students</h1>
+{% comment %} <h1>📋 Registered Students</h1>
 
 {% for reg in registrations %}
     <div class="card">
         {{ reg.student_name }} registered for <b>{{ reg.event.name }}</b>
     </div>
-{% endfor %}
+{% endfor %} {% endcomment %}
+
+<ul>
+    {% for reg in registrations %}
+        <li>
+            {{ reg.student_name }} registered for {{ reg.event.name }}
+        </li>
+    {% empty %}
+        <li>No registrations yet</li>
+    {% endfor %}
+</ul>
 
 </body>
 </html>

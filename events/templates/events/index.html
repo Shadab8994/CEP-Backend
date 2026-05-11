@@ -75,6 +75,10 @@
 
 
 <h1>🎓 College Events</h1>
+<form method="GET" class="search-bar">
+    <input type="text" name="q" placeholder="Search events..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
 
 {% for event in events %}
     <div class="event-card">

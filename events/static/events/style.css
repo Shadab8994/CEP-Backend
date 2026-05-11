@@ -287,3 +287,20 @@ button:hover {
         font-size: 28px;
     }
 }
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    width: 120px;
+}

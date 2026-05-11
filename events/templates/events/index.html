@@ -1,9 +1,11 @@
+ {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>College Events</title>
-
-    <style>
+<link rel="stylesheet" href="{% static 'events/style.css' %}">
+    {% comment %} <style>
         body {
             font-family: Arial;
             background-color: #f4f6f8;
@@ -54,13 +56,23 @@
         button:hover {
             background: #218838;
         }
-    </style>
+    </style> {% endcomment %}
 </head>
 
 <body>
-    <a href="/">Home</a> | 
+    {% comment %} <a href="/">Home</a> | 
 <a href="/registered/">Registered</a>
-<hr>
+<hr> {% endcomment %}
+
+<div class="navbar">
+    <div class="logo">🎓 Event Portal</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/registered/">Registered</a>
+        <a href="/admin/">Admin</a>
+    </div>
+</div>
+
 
 <h1>🎓 College Events</h1>
 

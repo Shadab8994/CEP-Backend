@@ -1,9 +1,13 @@
+
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Registered Students</title>
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
 
-    <style>
+    {% comment %} <style>
         body {
             font-family: Arial;
             background-color: #f4f6f8;
@@ -22,13 +26,19 @@
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-    </style>
+    </style> {% endcomment %}
 </head>
 
 <body>
-    <a href="/">Home</a> | 
-<a href="/registered/">Registered</a>
-<hr>
+    <div class="navbar">
+    <div class="logo">🎓 Event Portal</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/registered/">Registered</a>
+        <a href="/admin/">Admin</a>
+    </div>
+</div>
+
 
 <h1>📋 Registered Students</h1>
 

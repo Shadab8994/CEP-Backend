@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">🎓 Event Portal</div>
+
+    {% comment %} <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/registered/">Registered</a>
+        <a href="/feedback/">Feedback</a>
+    </div> {% endcomment %}
+
+<div class="nav-links">
+    <a href="/">Home</a>
+
+    {% if is_admin %}
+        <a href="/registered/">Registered</a>
+        <a href="/admin/">Admin</a>
+        <a href="/view-feedback/">Feedbacks</a>
+    {% endif %}
+
+    {% if is_student %}
+        <a href="/feedback/">Give Feedback</a>
+    {% endif %}
+</div>
+
+    <div class="user-info">
+        👤 {{ request.user.username }}
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+<div class="auth-container">
+    <h2>📝 Feedback Form</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="student_name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <textarea
+            name="message"
+            placeholder="Write your feedback..."
+            rows="5"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Submit Feedback
+        </button>
+    </form>
+</div>
+
+</body>
+</html>

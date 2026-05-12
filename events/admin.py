@@ -3,7 +3,8 @@ from .models import Event
 
 admin.site.register(Event)
 
-from .models import Event, Registration
+from .models import Event, Registration,Feedback
 
 # admin.site.register(Event)
 admin.site.register(Registration)
+admin.site.register(Feedback)

@@ -1,10 +1,10 @@
- {% load static %}
+ {% comment %} {% load static %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>College Events</title>
-<link rel="stylesheet" href="{% static 'events/style.css' %}">
+<link rel="stylesheet" href="{% static 'events/style.css' %}"> {% endcomment %}
     {% comment %} <style>
         body {
             font-family: Arial;
@@ -57,20 +57,26 @@
             background: #218838;
         }
     </style> {% endcomment %}
-</head>
+{% comment %} </head>
 
-<body>
+<body> {% endcomment %}
     {% comment %} <a href="/">Home</a> | 
 <a href="/registered/">Registered</a>
 <hr> {% endcomment %}
 
-<div class="navbar">
+{% comment %} <div class="navbar">
     <div class="logo">🎓 Event Portal</div>
+
     <div class="nav-links">
         <a href="/">Home</a>
         <a href="/registered/">Registered</a>
         <a href="/admin/">Admin</a>
     </div>
+    <div style="background:#333; padding:10px; color:white;">
+    Welcome, {{ request.user.username }}
+
+    <a href="{% url 'logout' %}" style="float:right; color:white;">Logout</a>
+</div>
 </div>
 
 
@@ -97,6 +103,79 @@
         </form>
     </div>
 {% endfor %}
+
+</body>
+</html> {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Events</title>
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
+</head>
+
+<body>
+
+<!-- 🔹 NAVBAR -->
+<div class="navbar">
+    <div class="logo">🎓 Event Portal</div>
+<div class="nav-links">
+    <a href="/">Home</a>
+
+    {% if is_admin %}
+        <a href="/registered/">Registered</a>
+        <a href="/view-feedback/">Feedbacks</a>
+        <a href="/admin/">Admin</a>
+    {% endif %}
+
+    {% if is_student %}
+        <a href="/feedback/">Give Feedback</a>
+    {% endif %}
+</div>
+    
+    <div class="user-info">
+        👤 {{ request.user.username }}
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+
+<!-- 🔹 TITLE -->
+<h1 class="main-title">🎓 College Events</h1>
+
+
+<!-- 🔹 SEARCH BAR -->
+<form method="GET" class="search-bar">
+    <input type="text" name="q" placeholder="Search events..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+
+<!-- 🔹 EVENTS GRID -->
+<div class="events-container">
+
+{% for event in events %}
+    <div class="event-card">
+        <div class="event-title">{{ event.name }}</div>
+
+        <div class="event-info">📅 {{ event.date }}</div>
+        <div class="event-info">📍 {{ event.location }}</div>
+        <div class="event-info">📝 {{ event.description }}</div>
+
+        <!-- REGISTER FORM -->
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="student_name" placeholder="Enter your name" required>
+            <input type="hidden" name="event_id" value="{{ event.id }}">
+            <button type="submit">Register</button>
+        </form>
+
+    </div>
+{% endfor %}
+
+</div>
 
 </body>
 </html>

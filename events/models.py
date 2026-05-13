@@ -91,7 +91,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# 🔹 Event Model
+#  Event Model
 class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
@@ -102,7 +102,7 @@ class Event(models.Model):
         return self.name
 
 
-# 🔹 Registration Model
+#  Registration Model
 class Registration(models.Model):
     student_name = models.CharField(max_length=100)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
@@ -111,7 +111,7 @@ class Registration(models.Model):
         return f"{self.student_name} - {self.event.name}"
 
 
-# 🔹 Feedback Model
+#  Feedback Model
 class Feedback(models.Model):
     student_name = models.CharField(max_length=100)
     message = models.TextField()

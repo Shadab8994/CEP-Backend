@@ -51,4 +51,5 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('view-feedback/', views.view_feedbacks, name='view_feedbacks'),
     path('logout/', views.logout_view, name='logout'),
+    
 ]

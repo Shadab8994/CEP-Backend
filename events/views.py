@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, Registration, Feedback, UserProfile
 
 
-# # 🔹 Role Helpers
+# #  Role Helpers
 # def is_admin(user):
 #     return hasattr(user, 'userprofile') and user.userprofile.role == 'admin'
 def is_admin(user):
@@ -22,7 +22,7 @@ def is_student(user):
     return hasattr(user, 'userprofile') and user.userprofile.role == 'student'
 
 
-# 🔹 Home Page
+#  Home Page
 @login_required
 def event_list(request):
 
@@ -59,7 +59,7 @@ def event_list(request):
     })
 
 
-# 🔹 Registered Students (Admin Only)
+#  Registered Students (Admin Only)
 @login_required
 def registered_list(request):
 
@@ -73,7 +73,7 @@ def registered_list(request):
     })
 
 
-# 🔹 Feedback Page (Student Only)
+#  Feedback Page (Student Only)
 @login_required
 def feedback_view(request):
 
@@ -95,7 +95,7 @@ def feedback_view(request):
     return render(request, 'events/feedback.html')
 
 
-# 🔹 Admin View Feedbacks
+#  Admin View Feedbacks
 @login_required
 def view_feedbacks(request):
 
@@ -109,7 +109,7 @@ def view_feedbacks(request):
     })
 
 
-# 🔹 Signup
+#  Signup
 def signup_view(request):
 
     if request.method == 'POST':
@@ -148,7 +148,7 @@ def signup_view(request):
     return render(request, 'events/signup.html')
 
 
-# 🔹 Login
+#  Login
 def login_view(request):
 
     error = None
@@ -176,7 +176,7 @@ def login_view(request):
     })
 
 
-# 🔹 Logout
+#  Logout
 def logout_view(request):
 
     logout(request)

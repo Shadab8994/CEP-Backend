@@ -321,3 +321,133 @@ button:hover {
 .user-info a:hover {
     background-color: #e60000;
 }
+
+/*  Add Event Section */
+
+.add-event-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
+/*  Add Event Button */
+
+.add-event-wrapper .add-event-btn {
+
+    background-color: red;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    display: inline-block;
+
+    width: auto;
+}
+
+
+/*  Hover */
+
+.add-event-wrapper .add-event-btn:hover {
+
+    background-color: darkred;
+}
+
+/* 🔹 Form Inputs */
+
+#add-event-form input,
+#add-event-form textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    background-color: #f5f9ff;
+
+    color: #333;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+/* 🔹 Input Focus */
+
+#add-event-form input:focus,
+#add-event-form textarea:focus {
+
+    border-color: #4facfe;
+
+    background-color: #eef6ff;
+}
+
+
+/* 🔹 Placeholder */
+
+#add-event-form input::placeholder,
+#add-event-form textarea::placeholder {
+
+    color: #777;
+
+    font-style: italic;
+}
+
+/* 🔹 Event Admin Actions */
+
+#event-admin-actions {
+
+    margin-top: 15px;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+
+/* 🔹 Edit Event Button */
+
+#event-edit-btn {
+
+    background-color: #11998e;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    display: inline-block;
+
+    width: auto;
+
+    transition: 0.3s;
+}
+
+
+/* 🔹 Hover */
+
+#event-edit-btn:hover {
+
+    background-color: #0b7d73;
+}

@@ -182,3 +182,67 @@ def logout_view(request):
     logout(request)
 
     return redirect('login')
+
+#  Add Event
+@login_required
+def add_event(request):
+
+    if not is_admin(request.user):
+        return redirect('home')
+
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        date = request.POST.get('date')
+        location = request.POST.get('location')
+        description = request.POST.get('description')
+
+        Event.objects.create(
+            name=name,
+            date=date,
+            location=location,
+            description=description
+        )
+
+        return redirect('home')
+
+    return render(request, 'events/add_event.html')
+
+
+#  Edit Event
+@login_required
+def edit_event(request, event_id):
+
+    if not is_admin(request.user):
+        return redirect('home')
+
+    event = get_object_or_404(Event, id=event_id)
+
+    if request.method == 'POST':
+
+        event.name = request.POST.get('name')
+        event.date = request.POST.get('date')
+        event.location = request.POST.get('location')
+        event.description = request.POST.get('description')
+
+        event.save()
+
+        return redirect('home')
+
+    return render(request, 'events/edit_event.html', {
+        'event': event
+    })
+
+
+#  Delete Event
+@login_required
+def delete_event(request, event_id):
+
+    if not is_admin(request.user):
+        return redirect('home')
+
+    event = get_object_or_404(Event, id=event_id)
+
+    event.delete()
+
+    return redirect('home')

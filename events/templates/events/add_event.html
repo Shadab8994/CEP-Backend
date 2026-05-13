@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Event</title>
+
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
+</head>
+
+<body>
+
+<div id="add-event-container">
+
+    <h2 id="add-event-title">
+        ➕ Add New Event
+    </h2>
+
+    <form method="POST" id="add-event-form">
+
+        {% csrf_token %}
+
+        <input
+    type="text"
+    name="name"
+    placeholder="Enter event title..."
+    required
+>
+
+<input
+    type="date"
+    name="date"
+    required
+>
+
+<input
+    type="text"
+    name="location"
+    placeholder="Enter event location..."
+    required
+>
+
+<textarea
+    name="description"
+    placeholder="Write event description here..."
+></textarea>
+
+        <button
+            type="submit"
+            id="add-event-submit-btn"
+        >
+            Add Event
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

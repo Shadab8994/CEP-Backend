@@ -51,5 +51,7 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('view-feedback/', views.view_feedbacks, name='view_feedbacks'),
     path('logout/', views.logout_view, name='logout'),
-    
+    path('add-event/', views.add_event, name='add_event'),
+    path('edit-event/<int:event_id>/', views.edit_event, name='edit_event'),
+    path('delete-event/<int:event_id>/', views.delete_event, name='delete_event'),
 ]

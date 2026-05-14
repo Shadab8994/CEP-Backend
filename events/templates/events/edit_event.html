@@ -1,35 +1,90 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>Edit Event</title>
-    <link rel="stylesheet" href="{% static 'events/style.css' %}">
-</head>
 
-<body class="auth-body">
+    <link rel="stylesheet" href="{% static 'events/style.css' %}" />
+  </head>
 
-<div class="auth-container">
+  <body>
+    <div id="edit-event-container">
+      <h2 id="edit-event-title">✏ Edit Event</h2>
 
-<h2>Edit Event</h2>
+      <form method="POST" id="edit-event-form">
+        {% csrf_token %}
 
-<form method="POST">
+        <input
+          type="text"
+          name="name"
+          value="{{ event.name }}"
+          placeholder="Update event title..."
+          required
+        />
 
-    {% csrf_token %}
+        <input
+          type="date"
+          name="date"
+          value="{{ event.date|date:'Y-m-d' }}"
+          required
+        />
 
-    <input type="text" name="name" value="{{ event.name }}" required>
+        <input
+          type="text"
+          name="location"
+          value="{{ event.location }}"
+          placeholder="Update event location..."
+          required
+        />
 
-    <input type="date" name="date" value="{{ event.date|date:'Y-m-d' }}" required>
+        <select name="status">
+          <option
+            value="Upcoming"
+            {%
+            if
+            event.status=""
+            ="Upcoming"
+            %}selected{%
+            endif
+            %}
+          >
+            Upcoming
+          </option>
 
-    <input type="text" name="location" value="{{ event.location }}" required>
+          <option
+            value="Ongoing"
+            {%
+            if
+            event.status=""
+            ="Ongoing"
+            %}selected{%
+            endif
+            %}
+          >
+            Ongoing
+          </option>
 
-    <textarea name="description">{{ event.description }}</textarea>
+          <option
+            value="Completed"
+            {%
+            if
+            event.status=""
+            ="Completed"
+            %}selected{%
+            endif
+            %}
+          >
+            Completed
+          </option>
+        </select>
 
-    <button type="submit">Update Event</button>
+        <textarea name="description" placeholder="Update event description...">
+{{ event.description }}</textarea
+        >
 
-</form>
-
-</div>
-
-</body>
+        <button type="submit" id="edit-event-submit-btn">Update Event</button>
+      </form>
+    </div>
+  </body>
 </html>

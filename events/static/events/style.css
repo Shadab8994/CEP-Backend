@@ -361,7 +361,7 @@ button:hover {
     background-color: darkred;
 }
 
-/* 🔹 Form Inputs */
+/*  Form Inputs */
 
 #add-event-form input,
 #add-event-form textarea {
@@ -388,7 +388,7 @@ button:hover {
 }
 
 
-/* 🔹 Input Focus */
+/*  Input Focus */
 
 #add-event-form input:focus,
 #add-event-form textarea:focus {
@@ -399,7 +399,7 @@ button:hover {
 }
 
 
-/* 🔹 Placeholder */
+/*  Placeholder */
 
 #add-event-form input::placeholder,
 #add-event-form textarea::placeholder {
@@ -409,7 +409,7 @@ button:hover {
     font-style: italic;
 }
 
-/* 🔹 Event Admin Actions */
+/*  Event Admin Actions */
 
 #event-admin-actions {
 
@@ -421,7 +421,7 @@ button:hover {
 }
 
 
-/* 🔹 Edit Event Button */
+/*  Edit Event Button */
 
 #event-edit-btn {
 
@@ -445,9 +445,185 @@ button:hover {
 }
 
 
-/* 🔹 Hover */
+/*  Hover */
 
 #event-edit-btn:hover {
 
     background-color: #0b7d73;
+}
+
+/*  Delete Button */
+
+.delete-btn {
+
+    background: gold;
+
+    color: black;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.delete-btn:hover {
+
+    background: #f5c400;
+}
+
+/*  Edit Event Page */
+
+#edit-event-container {
+
+    width: 420px;
+
+    margin: 60px auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+
+#edit-event-title {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #243b55;
+
+    font-size: 28px;
+}
+
+
+#edit-event-form input,
+#edit-event-form textarea {
+
+    width: 100%;
+
+    padding: 14px;
+}
+
+/*  Edit Event Page */
+
+#edit-event-container {
+
+    width: 420px;
+
+    margin: 60px auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+
+#edit-event-title {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #243b55;
+
+    font-size: 28px;
+}
+
+
+/* Form Inputs */
+
+#edit-event-form input,
+#edit-event-form textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    background-color: #f5f9ff;
+
+    color: #333;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+/*  Focus */
+
+#edit-event-form input:focus,
+#edit-event-form textarea:focus {
+
+    border-color: #4facfe;
+
+    background-color: #eef6ff;
+}
+
+
+/*  Textarea */
+
+#edit-event-form textarea {
+
+    resize: none;
+
+    height: 100px;
+}
+
+
+/*  Update Button */
+
+#edit-event-submit-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: linear-gradient(90deg, #11998e, #38ef7d);
+
+    border: none;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/*  Hover */
+
+#edit-event-submit-btn:hover {
+
+    transform: scale(1.02);
+
+    opacity: 0.9;
 }

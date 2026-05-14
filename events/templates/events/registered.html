@@ -1,62 +1,62 @@
-
 {% load static %}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registered Students</title>
     <link rel="stylesheet" href="{% static 'events/style.css' %}">
-
-    {% comment %} <style>
-        body {
-            font-family: Arial;
-            background-color: #f4f6f8;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .card {
-            background: white;
-            padding: 10px;
-            margin: 10px auto;
-            width: 50%;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-    </style> {% endcomment %}
 </head>
 
 <body>
-    <div class="navbar">
-    <div class="logo">🎓 Event Portal</div>
+
+<div class="navbar">
+
+    <div class="logo">
+        🎓 Event Portal
+    </div>
+
     <div class="nav-links">
         <a href="/">Home</a>
         <a href="/registered/">Registered</a>
+        <a href="/view-feedback/">Feedbacks</a>
         <a href="/admin/">Admin</a>
     </div>
+
+    <div class="user-info">
+        👤 {{ request.user.username }}
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
 </div>
 
 
-{% comment %} <h1>📋 Registered Students</h1>
+<h1 class="main-title">
+    📋 Registered Students
+</h1>
+
+
+<div class="events-container">
 
 {% for reg in registrations %}
-    <div class="card">
-        {{ reg.student_name }} registered for <b>{{ reg.event.name }}</b>
-    </div>
-{% endfor %} {% endcomment %}
 
-<ul>
-    {% for reg in registrations %}
-        <li>
-            {{ reg.student_name }} registered for {{ reg.event.name }}
-        </li>
-    {% empty %}
-        <li>No registrations yet</li>
-    {% endfor %}
-</ul>
+    <div class="event-card">
+
+        <div class="event-title">
+            {{ reg.student_name }}
+        </div>
+
+        <div class="event-info">
+            Registered for: {{ reg.event.name }}
+        </div>
+
+    </div>
+
+{% empty %}
+
+    <div class="event-card">
+        <div class="event-info">
+            No registrations available
+        </div>
+    </div>
+
+{% endfor %}
+
+</div>
 
 </body>
 </html>

@@ -49,8 +49,8 @@ def event_list(request):
             event=event
         )
 
-        return redirect('home')
-
+        # return redirect('home')
+        return redirect('/?registered=true')
     return render(request, 'events/index.html', {
         'events': events,
         'query': query,
@@ -90,7 +90,8 @@ def feedback_view(request):
             message=message
         )
 
-        return redirect('home')
+        # return redirect('home')
+        return redirect('/feedback/?feedback=success')
 
     return render(request, 'events/feedback.html')
 
@@ -196,12 +197,13 @@ def add_event(request):
         date = request.POST.get('date')
         location = request.POST.get('location')
         description = request.POST.get('description')
-
+        status = request.POST.get('status')
         Event.objects.create(
             name=name,
             date=date,
             location=location,
-            description=description
+            description=description,
+            status=status
         )
 
         return redirect('home')
@@ -224,7 +226,7 @@ def edit_event(request, event_id):
         event.date = request.POST.get('date')
         event.location = request.POST.get('location')
         event.description = request.POST.get('description')
-
+        event.status = request.POST.get('status')
         event.save()
 
         return redirect('home')

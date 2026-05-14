@@ -54,4 +54,7 @@ urlpatterns = [
     path('add-event/', views.add_event, name='add_event'),
     path('edit-event/<int:event_id>/', views.edit_event, name='edit_event'),
     path('delete-event/<int:event_id>/', views.delete_event, name='delete_event'),
+    path('api/events/', views.event_api),
+    path('api/add-event/', views.add_event_api),
+    path('api/update-event/<int:event_id>/',views.update_event_api),
 ]

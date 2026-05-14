@@ -1,4 +1,4 @@
-// 🔹 Registration Popup
+//  Registration Popup
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -17,7 +17,7 @@ if (urlParams.get('registered') === 'true') {
 }
 
 
-// 🔹 Feedback Popup
+//  Feedback Popup
 
 if (urlParams.get('feedback') === 'success') {
 
@@ -34,7 +34,7 @@ if (urlParams.get('feedback') === 'success') {
 }
 
 
-// 🔹 Delete Popup
+//  Delete Popup
 
 function showDeletePopup(event, url) {
 

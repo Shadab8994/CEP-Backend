@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <!-- 🔹 NAVBAR -->
+    <!--  NAVBAR -->
     <div class="navbar">
       <div class="logo">🎓 Event Portal</div>
 
@@ -31,10 +31,10 @@
       </div>
     </div>
 
-    <!-- 🔹 TITLE -->
+    <!-- TITLE -->
     <h1 class="main-title">🎓 College Events</h1>
 
-    <!-- 🔹 SEARCH BAR -->
+    <!--  SEARCH BAR -->
     <form method="GET" class="search-bar">
       <input
         type="text"
@@ -46,7 +46,7 @@
       <button type="submit">Search</button>
     </form>
 
-    <!-- 🔹 ADD EVENT BUTTON -->
+    <!--  ADD EVENT BUTTON -->
     {% if is_admin %}
 
     <div style="text-align: right; margin-top: 15px; margin-bottom: 20px">
@@ -67,7 +67,7 @@
 
     {% endif %}
 
-    <!-- 🔹 EVENTS GRID -->
+    <!--  EVENTS GRID -->
     <div class="events-container">
       {% for event in events %}
 
@@ -82,7 +82,7 @@
        
         <div class="event-info">📌 Status: {{ event.status }}</div>
 
-        <!-- 🔹 REGISTER FORM -->
+        <!--  REGISTER FORM -->
         {% if is_student %}
 
         <form method="POST">
@@ -102,7 +102,7 @@
 
         {% endif %}
 
-        <!-- 🔹 ADMIN BUTTONS -->
+        <!--  ADMIN BUTTONS -->
         {% if is_admin %}
 
         <div

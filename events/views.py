@@ -4,7 +4,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .models import Event, Registration, Feedback, UserProfile
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
+from .serializers import EventSerializer
 
 # #  Role Helpers
 # def is_admin(user):
@@ -248,3 +251,50 @@ def delete_event(request, event_id):
     event.delete()
 
     return redirect('home')
+
+
+#  Events API
+
+@api_view(['GET'])
+def event_api(request):
+
+    events = Event.objects.all()
+
+    serializer = EventSerializer(events, many=True)
+
+    return Response(serializer.data)
+
+#  Add Event API
+
+@api_view(['POST'])
+def add_event_api(request):
+
+    serializer = EventSerializer(data=request.data)
+
+    if serializer.is_valid():
+
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(serializer.errors)
+
+#  Update Event API
+
+@api_view(['PUT'])
+def update_event_api(request, event_id):
+
+    event = get_object_or_404(Event, id=event_id)
+
+    serializer = EventSerializer(
+        event,
+        data=request.data
+    )
+
+    if serializer.is_valid():
+
+        serializer.save()
+
+        return Response(serializer.data)
+
+    return Response(serializer.errors)

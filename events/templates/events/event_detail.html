@@ -1,0 +1,137 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Event Details</title>
+
+    <link rel="stylesheet" href="{% static 'events/style.css' %}" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+      <div class="logo">Event Portal</div>
+
+      <div class="nav-links">
+        <a href="/">Home</a>
+      </div>
+
+      <div class="profile-menu">
+
+    <button class="profile-btn">
+
+        👤 {{ request.user.username }}
+
+    </button>
+
+
+    <div class="profile-dropdown">
+
+        <a href="/change-username/">
+
+            Change Username
+
+        </a>
+
+
+        <a href="/change-password/">
+
+            Change Password
+
+        </a>
+
+
+        <a href="{% url 'logout' %}">
+
+            Logout
+
+        </a>
+
+    </div>
+
+</div>
+    </div>
+
+    <!-- EVENT DETAIL CARD -->
+
+    <div class="event-detail-container">
+      <div class="event-detail-card">
+        <h1>{{ event.name }}</h1>
+
+        <p>📅 {{ event.date }}</p>
+
+        <p>📍 {{ event.location }}</p>
+
+        <p>📝 {{ event.description }}</p>
+
+        <p>📌 {{ event.status }}</p>
+
+        <div class="register-count">
+          👥 Registered Students: {{ event.registration_set.count }}
+        </div>
+        {% if is_admin %}
+
+        <div class="feedback-count">
+          💬 Total Feedbacks: {{ event.feedback_set.count }}
+        </div>
+
+        {% endif %}
+        <!-- REGISTER FORM -->
+
+        {% if is_student and event.status == "Upcoming" %}
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <input
+            type="text"
+            name="student_name"
+            placeholder="Enter your name"
+            required
+          />
+
+          <button type="submit">Register</button>
+        </form>
+
+        {% endif %}
+
+        <!-- FEEDBACK FORM -->
+
+        {% if is_student and event.status != "Upcoming" %}
+
+        <form method="POST" class="feedback-form">
+          {% csrf_token %}
+
+          <input type="hidden" name="feedback_submit" value="true" />
+
+          <input
+            type="text"
+            name="student_name"
+            placeholder="Enter your name"
+            required
+          />
+
+          <textarea
+            name="message"
+            placeholder="Write your feedback..."
+            required
+          ></textarea>
+
+          <button type="submit">Submit Feedback</button>
+        </form>
+
+        {% endif %}
+
+        <!-- BACK BUTTON -->
+
+        <a href="/" class="back-btn"> ← Back </a>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{% static 'events/popup.js' %}"></script>
+  </body>
+</html>

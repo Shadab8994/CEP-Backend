@@ -4,37 +4,50 @@
 <html>
   <head>
     <title>College Events</title>
+
     <link rel="stylesheet" href="{% static 'events/style.css' %}" />
   </head>
 
   <body>
-    <!--  NAVBAR -->
+    <!-- NAVBAR -->
+
     <div class="navbar">
-      <div class="logo">🎓 Event Portal</div>
+      <div class="logo">Event Portal</div>
 
       <div class="nav-links">
         <a href="/">Home</a>
 
         {% if is_admin %}
-        <a href="/registered/">Registered</a>
-        <a href="/view-feedback/">Feedbacks</a>
-        <a href="/admin/">Admin</a>
-        {% endif %} {% if is_student %}
-        <a href="/feedback/">Give Feedback</a>
+
+        <a href="/registered/"> Registered </a>
+
+        <a href="/view-feedback/"> Feedbacks </a>
+
+        <a href="/admin/"> Admin </a>
+
         {% endif %}
       </div>
 
-      <div class="user-info">
-        👤 {{ request.user.username }}
+      <div class="profile-menu">
+        <button class="profile-btn">👤 {{ request.user.username }}</button>
 
-        <a href="{% url 'logout' %}"> Logout </a>
+        <div class="profile-dropdown">
+
+          <a href="/change-username/"> Change Username </a>
+
+          <a href="/change-password/"> Change Password </a>
+
+          <a href="{% url 'logout' %}"> Logout </a>
+        </div>
       </div>
     </div>
 
     <!-- TITLE -->
-    <h1 class="main-title">🎓 College Events</h1>
 
-    <!--  SEARCH BAR -->
+    <h1 class="main-title">College Events</h1>
+
+    <!-- SEARCH BAR -->
+
     <form method="GET" class="search-bar">
       <input
         type="text"
@@ -43,10 +56,11 @@
         value="{{ query }}"
       />
 
-      <button type="submit">Search</button>
+      <button type="submit">🔍</button>
     </form>
 
-    <!--  ADD EVENT BUTTON -->
+    <!-- ADD EVENT BUTTON -->
+
     {% if is_admin %}
 
     <div style="text-align: right; margin-top: 15px; margin-bottom: 20px">
@@ -67,7 +81,8 @@
 
     {% endif %}
 
-    <!--  EVENTS GRID -->
+    <!-- EVENTS GRID -->
+
     <div class="events-container">
       {% for event in events %}
 
@@ -79,30 +94,35 @@
         <div class="event-info">📍 {{ event.location }}</div>
 
         <div class="event-info">📝 {{ event.description }}</div>
-       
-        <div class="event-info">📌 Status: {{ event.status }}</div>
 
-        <!--  REGISTER FORM -->
-        {% if is_student %}
+        <!-- STATUS -->
 
-        <form method="POST">
-          {% csrf_token %}
+        <div class="event-info">
+          {% if event.status == "Upcoming" %}
 
-          <input
-            type="text"
-            name="student_name"
-            placeholder="Enter your name"
-            required
-          />
+          <span class="status upcoming"> 📌 Upcoming </span>
 
-          <input type="hidden" name="event_id" value="{{ event.id }}" />
+          {% elif event.status == "Ongoing" %}
 
-          <button type="submit">Register</button>
-        </form>
+          <span class="status ongoing"> 🟢 Ongoing </span>
 
-        {% endif %}
+          {% else %}
 
-        <!--  ADMIN BUTTONS -->
+          <span class="status completed"> ✅ Completed </span>
+
+          {% endif %}
+        </div>
+
+        <!-- REGISTER COUNT -->
+
+        <div class="register-count">
+          👥 Registered Students: {{ event.registration_set.count }}
+        </div>
+
+        <a href="/event/{{ event.id }}/" class="view-btn"> View </a>
+
+        <!-- ADMIN BUTTONS -->
+
         {% if is_admin %}
 
         <div

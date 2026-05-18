@@ -1,629 +1,833 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 0;
-}
+/* 🔹 RESET */
 
-h1 {
-    text-align: center;
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px;
-    margin: 0;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.card {
-    background: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #2980b9;
-} */
-
-
-/* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Body */
+/* 🔹 BODY */
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(120deg, #f6f9fc, #e9f2ff);
-    color: #333;
+  font-family: "Segoe UI", sans-serif;
+
+  background: linear-gradient(120deg, #e3f2fd, #fce4ec);
+
+  color: #333;
+
+  padding: 20px;
 }
 
-/* Header */
-h1 {
-    text-align: center;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    color: white;
-    padding: 20px;
-    font-size: 28px;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+/* 🔹 NAVBAR */
 
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 30px auto;
-}
-
-/* Card Design */
-.card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover Effect */
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-/* Event Title */
-.card h2 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-/* Text spacing */
-.card p {
-    margin: 6px 0;
-    line-height: 1.5;
-}
-
-/* Button */
-button {
-    margin-top: 12px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #36d1dc, #5b86e5);
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* Button Hover */
-button:hover {
-    transform: scale(1.05);
-    background: linear-gradient(90deg, #5b86e5, #36d1dc);
-}
-
-/* Links */
-a {
-    text-decoration: none;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 22px;
-        padding: 15px;
-    }
-
-    .card {
-        padding: 15px;
-    }
-
-    button {
-        width: 100%;
-    }
-}
-
-
-/* NAVBAR */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(90deg, #141e30, #243b55);
-    padding: 12px 20px;
-    color: white;
+  display: flex;
+
+  align-items: center;
+
+  background: linear-gradient(90deg, #0f172a, #243b55);
+
+  padding: 18px 22px;
+
+  border-radius: 15px;
+
+  margin: 20px;
+
+  gap: 40px;
 }
 
-/* Logo */
+/* 🔹 LOGO */
+
 .logo {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 22px;
+
+  font-weight: bold;
+
+  color: white;
 }
 
-/* Links */
+/* 🔹 NAV LINKS */
+
+.nav-links {
+  display: flex;
+
+  gap: 25px;
+}
+
+/* 🔹 PUSH USER INFO RIGHT */
+
+.user-info {
+  margin-left: auto;
+}
+
+/* 🔹 NAVBAR BUTTONS */
+
 .nav-links a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
+  background: #2563eb;
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 10px 22px;
+
+  border-radius: 10px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
 }
 
-/* Hover effect */
 .nav-links a:hover {
-    color: #00f2fe;
+  background: #1d4ed8;
+
+  transform: scale(1.05);
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        margin-top: 10px;
-    }
-
-    .nav-links a {
-        display: block;
-        margin: 5px 0;
-    }
-}
-
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(120deg, #e3f2fd, #fce4ec);
-    color: #333;
-    padding: 20px;
-}
-
-/* Main Container - FULL WIDTH */
-.container {
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-}
-
-/* Heading */
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 36px;
-    color: #2c3e50;
-}
-
-/* Grid Layout */
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-
-/* Event Card */
-.event-card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.event-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Event Title */
-.event-card h2 {
-    margin-bottom: 10px;
-    color: #0077b6;
-}
-
-/* Text */
-.event-card p {
-    margin: 8px 0;
-    line-height: 1.5;
-}
-
-/* Form */
-form {
-    margin-top: 15px;
-}
-
-/* Input */
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-/* Button */
-button {
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(45deg, #00b4d8, #0077b6);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background: linear-gradient(45deg, #0077b6, #023e8a);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 28px;
-    }
-}
-
-.search-bar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-}
-
-.search-bar input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-}
-
-.search-bar button {
-    width: 120px;
-}
-
-/* 🔹 Logout Button */
+/* 🔹 LOGOUT BUTTON */
 
 .user-info a {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 10px;
-    transition: 0.3s;
+  background-color: #ff4d4d;
+
+  color: white;
+
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  margin-left: 10px;
+
+  transition: 0.3s;
 }
 
 .user-info a:hover {
-    background-color: #e60000;
+  background-color: #e60000;
 }
 
-/*  Add Event Section */
+/* 🔹 MAIN TITLE */
+
+.main-title {
+  text-align: left;
+
+  margin-left: 25px;
+
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+
+  font-size: 42px;
+
+  color: #2c3e50;
+}
+
+/* 🔹 SEARCH BAR */
+
+.search-bar {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  width: 25%;
+
+  margin-left: 20px;
+
+  margin-bottom: 25px;
+}
+
+.search-bar input {
+  width: 100%;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ccc;
+
+  outline: none;
+}
+
+.search-bar button {
+  width: 50px;
+
+  height: 45px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: linear-gradient(45deg, #00b4d8, #0077b6);
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.search-bar button:hover {
+  background: linear-gradient(45deg, #0077b6, #023e8a);
+}
+
+/* 🔹 ADD EVENT BUTTON */
 
 .add-event-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
-    margin-bottom: 20px;
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 15px;
+
+  margin-bottom: 20px;
 }
 
+.add-event-btn {
+  background-color: red;
 
-/*  Add Event Button */
+  color: white;
 
-.add-event-wrapper .add-event-btn {
+  padding: 10px 18px;
 
-    background-color: red;
+  border-radius: 8px;
 
-    color: white;
+  text-decoration: none;
 
-    padding: 10px 18px;
+  font-weight: bold;
 
-    border-radius: 8px;
+  border: none;
 
-    text-decoration: none;
+  cursor: pointer;
 
-    font-weight: bold;
-
-    display: inline-block;
-
-    width: auto;
+  width: auto;
 }
 
-
-/*  Hover */
-
-.add-event-wrapper .add-event-btn:hover {
-
-    background-color: darkred;
+.add-event-btn:hover {
+  background-color: darkred;
 }
 
-/*  Form Inputs */
+/* 🔹 EVENTS GRID */
 
-#add-event-form input,
-#add-event-form textarea {
+.events-container {
+  display: grid;
 
-    width: 100%;
+  grid-template-columns: repeat(2, 1fr);
 
-    padding: 14px;
+  gap: 25px;
 
-    margin-bottom: 18px;
-
-    border: 1px solid #dcdcdc;
-
-    border-radius: 10px;
-
-    font-size: 15px;
-
-    background-color: #f5f9ff;
-
-    color: #333;
-
-    outline: none;
-
-    transition: 0.3s;
+  padding: 0 20px 30px;
 }
 
+/* 🔹 EVENT CARD */
 
-/*  Input Focus */
+.event-card {
+  background: white;
 
-#add-event-form input:focus,
-#add-event-form textarea:focus {
+  padding: 22px;
 
-    border-color: #4facfe;
+  border-radius: 18px;
 
-    background-color: #eef6ff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+
+  transition: 0.3s ease;
+
+  height: 100%;
 }
 
-
-/*  Placeholder */
-
-#add-event-form input::placeholder,
-#add-event-form textarea::placeholder {
-
-    color: #777;
-
-    font-style: italic;
+.event-card:hover {
+  transform: translateY(-5px);
 }
 
-/*  Event Admin Actions */
+/* 🔹 EVENT TEXT */
 
-#event-admin-actions {
+.event-card h2 {
+  margin-bottom: 10px;
 
-    margin-top: 15px;
-
-    display: flex;
-
-    justify-content: flex-end;
+  color: #0077b6;
 }
 
+.event-card p {
+  margin: 8px 0;
 
-/*  Edit Event Button */
+  line-height: 1.5;
+}
+
+/* 🔹 FORMS */
+
+form {
+  margin-top: 15px;
+}
+
+/* 🔹 INPUTS */
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+
+  padding: 12px;
+
+  margin-bottom: 15px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ccc;
+
+  outline: none;
+}
+
+/* 🔹 BUTTONS */
+
+button {
+  padding: 10px 15px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: linear-gradient(45deg, #00b4d8, #0077b6);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #0077b6, #023e8a);
+}
+
+/* 🔹 EDIT BUTTON */
 
 #event-edit-btn {
+  background-color: #11998e;
 
-    background-color: #11998e;
+  color: white;
 
-    color: white;
+  padding: 10px 16px;
 
-    padding: 10px 16px;
+  border-radius: 8px;
 
-    border-radius: 8px;
+  text-decoration: none;
 
-    text-decoration: none;
+  font-weight: bold;
 
-    font-weight: bold;
-
-    display: inline-block;
-
-    width: auto;
-
-    transition: 0.3s;
+  transition: 0.3s;
 }
-
-
-/*  Hover */
 
 #event-edit-btn:hover {
-
-    background-color: #0b7d73;
+  background-color: #0b7d73;
 }
 
-/*  Delete Button */
+/* 🔹 DELETE BUTTON */
 
 .delete-btn {
+  background: gold;
 
-    background: gold;
+  color: black;
 
-    color: black;
+  padding: 10px 16px;
 
-    padding: 10px 16px;
+  border-radius: 8px;
 
-    border-radius: 8px;
+  text-decoration: none;
 
-    text-decoration: none;
+  font-weight: bold;
 
-    font-weight: bold;
-
-    transition: 0.3s;
+  transition: 0.3s;
 }
-
 
 .delete-btn:hover {
-
-    background: #f5c400;
+  background: #f5c400;
 }
 
-/*  Edit Event Page */
+/* 🔹 ADD EVENT PAGE */
 
+#add-event-container,
 #edit-event-container {
+  width: 420px;
 
-    width: 420px;
+  margin: 60px auto;
 
-    margin: 60px auto;
+  background: white;
 
-    background: white;
+  padding: 35px;
 
-    padding: 35px;
+  border-radius: 16px;
 
-    border-radius: 16px;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* 🔹 PAGE TITLES */
 
+#add-event-title,
 #edit-event-title {
+  text-align: center;
 
-    text-align: center;
+  margin-bottom: 25px;
 
-    margin-bottom: 25px;
+  color: #243b55;
 
-    color: #243b55;
-
-    font-size: 28px;
+  font-size: 28px;
 }
 
+/* 🔹 TEXTAREA */
 
-#edit-event-form input,
-#edit-event-form textarea {
+textarea {
+  resize: none;
 
-    width: 100%;
-
-    padding: 14px;
+  height: 100px;
 }
 
-/*  Edit Event Page */
-
-#edit-event-container {
-
-    width: 420px;
-
-    margin: 60px auto;
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 16px;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-
-#edit-event-title {
-
-    text-align: center;
-
-    margin-bottom: 25px;
-
-    color: #243b55;
-
-    font-size: 28px;
-}
-
-
-/* Form Inputs */
-
-#edit-event-form input,
-#edit-event-form textarea {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin-bottom: 18px;
-
-    border: 1px solid #dcdcdc;
-
-    border-radius: 10px;
-
-    font-size: 15px;
-
-    background-color: #f5f9ff;
-
-    color: #333;
-
-    outline: none;
-
-    transition: 0.3s;
-}
-
-
-/*  Focus */
-
-#edit-event-form input:focus,
-#edit-event-form textarea:focus {
-
-    border-color: #4facfe;
-
-    background-color: #eef6ff;
-}
-
-
-/*  Textarea */
-
-#edit-event-form textarea {
-
-    resize: none;
-
-    height: 100px;
-}
-
-
-/*  Update Button */
+/* 🔹 SUBMIT BUTTON */
 
 #edit-event-submit-btn {
+  width: 100%;
 
-    width: 100%;
+  padding: 12px;
 
-    padding: 12px;
+  background: linear-gradient(90deg, #11998e, #38ef7d);
 
-    background: linear-gradient(90deg, #11998e, #38ef7d);
+  border: none;
 
-    border: none;
+  border-radius: 10px;
 
-    border-radius: 10px;
+  color: white;
 
-    color: white;
+  font-size: 16px;
 
-    font-size: 16px;
+  font-weight: bold;
 
-    font-weight: bold;
+  cursor: pointer;
+}
 
-    cursor: pointer;
+/* 🔹 MOBILE */
 
-    transition: 0.3s;
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    display: block;
+
+    margin: 5px 0;
+  }
+
+  .main-title {
+    font-size: 30px;
+  }
+
+  .search-bar {
+    width: 90%;
+  }
+
+  #add-event-container,
+  #edit-event-container {
+    width: 95%;
+  }
+}
+
+.event-btns {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+#cancel-btn {
+  background: #ff4d4d;
+}
+
+#cancel-btn:hover {
+  background: #e60000;
+}
+
+/* 🔹 AUTH PAGE */
+
+.auth-body {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-height: 100vh;
+
+  background: linear-gradient(120deg, #e3f2fd, #fce4ec);
+}
+
+/* 🔹 LOGIN CARD */
+
+.auth-container {
+  width: 400px;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 LOGIN TITLE */
+
+.auth-container h2 {
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  color: #243b55;
+
+  font-size: 32px;
+}
+
+/* 🔹 LOGIN INPUTS */
+
+.auth-container input {
+  width: 100%;
+
+  padding: 12px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 10px;
+
+  outline: none;
+}
+
+/* 🔹 LOGIN BUTTON */
+
+.auth-container button {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: linear-gradient(45deg, #00b4d8, #0077b6);
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* 🔹 SIGNUP LINK */
+
+.auth-link {
+  text-align: center;
+
+  margin-top: 18px;
+}
+
+.auth-link a {
+  text-decoration: none;
+
+  color: #0077b6;
+
+  font-weight: bold;
+}
+
+/* 🔹 STATUS COLORS */
+
+.status {
+  display: inline-block;
+
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  margin-top: 8px;
+}
+
+/* UPCOMING */
+
+.upcoming {
+  background: #dbeafe;
+
+  color: #1d4ed8;
+}
+
+/* ONGOING */
+
+.ongoing {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+/* COMPLETED */
+
+.completed {
+  background: #e5e7eb;
+
+  color: #374151;
+}
+/* 🔹 REGISTER COUNT */
+
+.register-count {
+  margin-top: 12px;
+
+  background: #f3f4f6;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  color: #374151;
+}
+
+/* 🔹 VIEW BUTTON */
+
+.view-btn {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+.view-btn:hover {
+  background: #1d4ed8;
+}
+
+/* 🔹 BACK BUTTON */
+
+a.back-btn {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  background: #64748b;
+
+  color: white !important;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  transition: 0.3s;
+}
+
+a.back-btn:hover {
+  background: #475569;
+
+  transform: scale(1.03);
+}
+
+/* 🔹 FEEDBACK COUNT */
+
+.feedback-count {
+  margin-top: 12px;
+
+  background: #fef3c7;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  color: #92400e;
+}
+
+/* 🔹 PROFILE MENU */
+
+.profile-menu {
+  position: relative;
+
+  margin-left: auto;
+}
+
+/* 🔹 PROFILE BUTTON */
+
+.profile-btn {
+  background: transparent;
+
+  border: none;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* 🔹 DROPDOWN */
+
+.profile-dropdown {
+  display: none;
+
+  position: absolute;
+
+  right: 0;
+
+  top: 45px;
+
+  background: white;
+
+  width: 220px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+
+  z-index: 999;
+}
+
+/* 🔹 DROPDOWN LINKS */
+
+.profile-dropdown a {
+  display: block;
+
+  padding: 14px 18px;
+
+  text-decoration: none;
+
+  color: #1e293b;
+
+  font-weight: 500;
+
+  transition: 0.3s;
+  padding-top: 8px;
+}
+
+.profile-dropdown a:hover {
+  background: #f1f5f9;
 }
 
 
-/*  Hover */
 
-#edit-event-submit-btn:hover {
+/* 🔹 SHOW DROPDOWN */
 
-    transform: scale(1.02);
+.profile-menu:hover .profile-dropdown,
 
-    opacity: 0.9;
+.profile-dropdown:hover {
+
+    display: block;
+}
+/* 🔹 CHANGE PASSWORD / USERNAME FORM */
+
+.add-event-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-top: 25px;
+}
+
+/* 🔹 INPUT FIELDS */
+
+/* 🔹 FORM INPUTS */
+
+.add-event-card input {
+  width: 25%;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  border: 1px solid #d1d5db;
+
+  font-size: 15px;
+
+  outline: none;
+
+  margin: 0 auto;
+}
+
+/* 🔹 BUTTON AREA */
+
+.form-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+/* 🔹 CANCEL BUTTON */
+
+.cancel-btn {
+  background: #ff4d4d;
+
+  color: white;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.cancel-btn:hover {
+  background: #e63946;
+}
+/* 🔹 CENTER CARD HEADING */
+
+.add-event-card h1 {
+
+    text-align: center;
+
+    margin-bottom: 25px;
 }

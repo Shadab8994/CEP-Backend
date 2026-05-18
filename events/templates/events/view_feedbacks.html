@@ -1,74 +1,66 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>View Feedbacks</title>
 
-    <link rel="stylesheet" href="{% static 'events/style.css' %}">
-</head>
+    <link rel="stylesheet" href="{% static 'events/style.css' %}" />
+  </head>
 
-<body>
+  <body>
+    <!-- 🔹 NAVBAR -->
 
-<!-- 🔹 NAVBAR -->
-<div class="navbar">
+    <div class="navbar">
+      <div class="logo">🎓 Event Portal</div>
 
-    <div class="logo">
-        🎓 Event Portal
-    </div>
-
-    <div class="nav-links">
+      <div class="nav-links">
         <a href="/">Home</a>
-        <a href="/registered/">Registered</a>
-        <a href="/view-feedback/">Feedbacks</a>
-        <a href="/admin/">Admin</a>
-    </div>
 
-    <div class="user-info">
+        <a href="/registered/"> Registered </a>
+
+        <a href="/view-feedback/"> Feedbacks </a>
+
+        <a href="/admin/"> Admin </a>
+      </div>
+
+      <div class="user-info">
         👤 {{ request.user.username }}
 
-        <a href="{% url 'logout' %}">
-            Logout
-        </a>
+        <a href="{% url 'logout' %}"> Logout </a>
+      </div>
     </div>
 
-</div>
+    <!-- 🔹 TITLE -->
 
+    <h1 class="main-title">📋 Student Feedbacks</h1>
 
-<!--  TITLE -->
-<h1 class="main-title">
-    📋 Student Feedbacks
-</h1>
+    <!-- 🔹 FEEDBACK CONTAINER -->
 
+    <div class="events-container">
+      {% for feedback in feedbacks %}
 
-<!--  FEEDBACK CONTAINER -->
-<div class="events-container">
+      <div class="event-card">
+        <!-- EVENT NAME -->
 
-{% for feedback in feedbacks %}
+        <div class="event-title">{{ feedback.event.name }}</div>
 
-    <div class="event-card">
+        <!-- STUDENT NAME -->
 
-        <div class="event-title">
-            {{ feedback.student_name }}
-        </div>
+        <div class="event-info">👤 {{ feedback.student_name }}</div>
 
-        <div class="event-info">
-            💬 {{ feedback.message }}
-        </div>
+        <!-- FEEDBACK MESSAGE -->
 
+        <div class="event-info">💬 {{ feedback.message }}</div>
+      </div>
+
+      {% empty %}
+
+      <div class="event-card">
+        <div class="event-info">No feedbacks available</div>
+      </div>
+
+      {% endfor %}
     </div>
-
-{% empty %}
-
-    <div class="event-card">
-        <div class="event-info">
-            No feedbacks available
-        </div>
-    </div>
-
-{% endfor %}
-
-</div>
-
-</body>
+  </body>
 </html>

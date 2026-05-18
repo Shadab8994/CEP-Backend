@@ -1,6 +1,10 @@
-//  Registration Popup
+const urlParams = new URLSearchParams(
+    window.location.search
+);
 
-const urlParams = new URLSearchParams(window.location.search);
+
+
+// 🔹 Registration Success Popup
 
 if (urlParams.get('registered') === 'true') {
 
@@ -13,11 +17,51 @@ if (urlParams.get('registered') === 'true') {
         icon: 'success',
 
         confirmButtonColor: '#3085d6'
+
+    }).then(() => {
+
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+        );
+
     });
 }
 
 
-//  Feedback Popup
+
+// 🔹 Already Registered Popup
+
+if (
+    urlParams.get('already_registered')
+    === 'true'
+) {
+
+    Swal.fire({
+
+        title: 'Already Registered!',
+
+        text: 'You already registered for this event.',
+
+        icon: 'warning',
+
+        confirmButtonColor: '#f59e0b'
+
+    }).then(() => {
+
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+        );
+
+    });
+}
+
+
+
+// 🔹 Feedback Popup
 
 if (urlParams.get('feedback') === 'success') {
 
@@ -30,11 +74,21 @@ if (urlParams.get('feedback') === 'success') {
         icon: 'success',
 
         confirmButtonColor: '#3085d6'
+
+    }).then(() => {
+
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+        );
+
     });
 }
 
 
-//  Delete Popup
+
+// 🔹 Delete Popup
 
 function showDeletePopup(event, url) {
 
@@ -65,4 +119,20 @@ function showDeletePopup(event, url) {
             window.location.href = url;
         }
     });
+}
+
+
+
+// 🔹 Cancel Button
+
+const cancelBtn = document.getElementById(
+    "cancel-btn"
+);
+
+if (cancelBtn) {
+
+    cancelBtn.onclick = function () {
+
+        window.location.href = "/";
+    };
 }

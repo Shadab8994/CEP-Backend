@@ -1,0 +1,98 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Change Username</title>
+
+    <link rel="stylesheet" href="{% static 'events/style.css' %}" />
+  </head>
+
+  <body>
+
+<!-- 🔹 NAVBAR -->
+
+<div class="navbar">
+
+    <div class="logo">
+
+        Event Portal
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+    </div>
+
+</div>
+
+
+
+<!-- 🔹 CENTER CARD -->
+
+<div class="add-event-container">
+
+    <div class="add-event-card">
+
+        <h1>
+
+            👤 Change Username
+
+        </h1>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter New Username"
+                required
+            >
+
+
+            <div class="form-buttons">
+
+                <button type="submit">
+
+                    Update Username
+
+                </button>
+
+
+                <a
+                    href="/"
+                    class="cancel-btn"
+                >
+
+                    Cancel
+
+                </a>
+
+            </div>
+
+        </form>
+
+
+        {% if error %}
+
+        <p style="color:red; margin-top:15px; text-align:center;">
+
+            {{ error }}
+
+        </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

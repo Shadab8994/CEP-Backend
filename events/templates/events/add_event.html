@@ -60,16 +60,21 @@
     placeholder="Write event description here..."
 ></textarea>
 
-        <button
-            type="submit"
-            id="add-event-submit-btn"
-        >
-            Add Event
-        </button>
+       <div class="event-btns">
+
+    <button type="submit">
+        Add Event
+    </button>
+
+    <button type="button" id="cancel-btn">
+        Cancel
+    </button>
+
+</div>
 
     </form>
 
 </div>
-
+<script src="{% static 'events/popup.js' %}"></script>
 </body>
 </html>

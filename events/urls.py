@@ -41,6 +41,7 @@
 
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.event_list, name='home'),
@@ -57,4 +58,20 @@ urlpatterns = [
     path('api/events/', views.event_api),
     path('api/add-event/', views.add_event_api),
     path('api/update-event/<int:event_id>/',views.update_event_api),
+    path('event/<int:event_id>/',views.event_detail,name='event_detail'),
+    path(
+
+    'change-password/',
+
+    auth_views.PasswordChangeView.as_view(
+
+        template_name='events/change_password.html',
+
+        success_url='/'
+
+    ),
+
+    name='change_password'
+),
+path('change-username/',views.change_username,name='change_username'),
 ]

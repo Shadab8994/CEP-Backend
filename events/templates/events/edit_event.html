@@ -83,8 +83,13 @@
 {{ event.description }}</textarea
         >
 
-        <button type="submit" id="edit-event-submit-btn">Update Event</button>
+        <div class="event-btns">
+          <button type="submit" id="edit-event-submit-btn">Update Event</button>
+
+          <button type="button" id="cancel-btn">Cancel</button>
+        </div>
       </form>
     </div>
+    <script src="{% static 'events/popup.js' %}"></script>
   </body>
 </html>

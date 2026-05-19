@@ -211,3 +211,29 @@ if (urlParams.get('password_changed') === 'true') {
 
     });
 }
+
+
+// 🔹 Username Changed Popup
+
+if (urlParams.get('username_changed') === 'true') {
+
+    Swal.fire({
+
+        title: 'Username Updated!',
+
+        text: 'Username changed successfully.',
+
+        icon: 'success',
+
+        confirmButtonColor: '#3085d6'
+
+    }).then(() => {
+
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+        );
+
+    });
+}

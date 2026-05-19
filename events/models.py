@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 
-# 🔹 Event Model
+#  Event Model
 
 class Event(models.Model):
 
@@ -36,7 +36,7 @@ class Event(models.Model):
 
 
 
-# 🔹 Registration Model
+#  Registration Model
 
 class Registration(models.Model):
 
@@ -56,7 +56,7 @@ class Registration(models.Model):
         return f"{self.student_name} - {self.event.name}"
 
 
-# 🔹 Feedback Model
+#  Feedback Model
 
 class Feedback(models.Model):
 
@@ -77,7 +77,7 @@ class Feedback(models.Model):
 
 
 
-# 🔹 User Profile Model
+#  User Profile Model
 
 class UserProfile(models.Model):
 

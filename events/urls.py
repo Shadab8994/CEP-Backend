@@ -1,64 +1,59 @@
-# # from django.urls import path
-# # from .views import event_list
-
-# # urlpatterns = [
-# #     path('', event_list, name='event_list'),
-# # ]
-
-# # from django.urls import path
-# # from .views import event_list, registered_list
-
-# # urlpatterns = [
-# #     path('', event_list, name='event_list'),
-# #     path('registered/', registered_list, name='registered_list'),
-# # ]
-
-# # from django.urls import path
-# # from . import views
-
-# # urlpatterns = [
-# #     path('', views.event_list, name='home'),
-# #     path('register/', views.register_event, name='register'),
-# #     path('feedback/', views.feedback_view, name='feedback'),
-# #     path('registered/', views.registered_list, name='registered'),  
-# #     path('register/', views.register_event, name='register'),
-# # ]
 
 
 # from django.urls import path
 # from . import views
 
+
 # urlpatterns = [
 #     path('', views.event_list, name='home'),
 #     path('registered/', views.registered_list, name='registered'),
 #     path('feedback/', views.feedback_view, name='feedback'),
-#     path('', views.event_list, name='home'),
 
 #     path('signup/', views.signup_view, name='signup'),
 #     path('login/', views.login_view, name='login'),
+#     path('view-feedback/', views.view_feedbacks, name='view_feedbacks'),
 #     path('logout/', views.logout_view, name='logout'),
+#     path('add-event/', views.add_event, name='add_event'),
+#     path('edit-event/<int:event_id>/', views.edit_event, name='edit_event'),
+#     path('delete-event/<int:event_id>/', views.delete_event, name='delete_event'),
+#     path('api/events/', views.event_api),
+#     path('api/add-event/', views.add_event_api),
+#     path('api/update-event/<int:event_id>/',views.update_event_api),
+#     path('event/<int:event_id>/',views.event_detail,name='event_detail'),
+#     path('change-username/',views.change_username,name='change_username'),
+#     path('change-password/',views.change_password,name='change_password'),
 # ]
 
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
-    path('', views.event_list, name='home'),
-    path('registered/', views.registered_list, name='registered'),
-    path('feedback/', views.feedback_view, name='feedback'),
 
+    #  Home
+    path('', views.event_list, name='home'),
+
+    #  Authentication
     path('signup/', views.signup_view, name='signup'),
     path('login/', views.login_view, name='login'),
-    path('view-feedback/', views.view_feedbacks, name='view_feedbacks'),
     path('logout/', views.logout_view, name='logout'),
+
+    #  Event Pages
+    path('event/<int:event_id>/', views.event_detail, name='event_detail'),
     path('add-event/', views.add_event, name='add_event'),
     path('edit-event/<int:event_id>/', views.edit_event, name='edit_event'),
     path('delete-event/<int:event_id>/', views.delete_event, name='delete_event'),
+
+    #  Registration & Feedback
+    path('registered/', views.registered_list, name='registered'),
+    path('feedback/', views.feedback_view, name='feedback'),
+    path('view-feedback/', views.view_feedbacks, name='view_feedbacks'),
+
+    #  Profile
+    path('change-username/', views.change_username, name='change_username'),
+    path('change-password/', views.change_password, name='change_password'),
+
+    #  APIs
     path('api/events/', views.event_api),
     path('api/add-event/', views.add_event_api),
-    path('api/update-event/<int:event_id>/',views.update_event_api),
-    path('event/<int:event_id>/',views.event_detail,name='event_detail'),
-    path('change-username/',views.change_username,name='change_username'),
-    path('change-password/',views.change_password,name='change_password'),
+    path('api/update-event/<int:event_id>/', views.update_event_api),
 ]

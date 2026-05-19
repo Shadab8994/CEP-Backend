@@ -902,3 +902,15 @@ a.back-btn:hover {
 
     margin-top: 5px;
 }
+
+@media screen and (max-width: 768px) {
+
+    .main-title {
+
+        font-size: 40px;
+
+        text-align: center;
+
+    }
+
+}

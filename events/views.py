@@ -694,7 +694,7 @@ def change_username(request):
         )
 
 
-        # Check Existing Username
+        # 🔹 Check Existing Username
 
         if User.objects.filter(
             username=new_username
@@ -715,11 +715,18 @@ def change_username(request):
             )
 
 
+        # 🔹 Update Username
+
         request.user.username = new_username
 
         request.user.save()
 
-        return redirect('/')
+
+        # 🔹 Success Popup
+
+        return redirect(
+    '/change-username/?username_changed=true'
+)
 
 
     return render(

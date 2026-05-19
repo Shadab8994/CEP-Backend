@@ -233,9 +233,7 @@ def signup_view(request):
             'confirm_password'
         )
 
-        role = request.POST.get(
-            'role'
-        )
+        
 
 
         if password != confirm_password:
@@ -277,11 +275,11 @@ def signup_view(request):
 
         UserProfile.objects.create(
 
-            user=user,
+    user=user,
 
-            role=role
+    role='student'
 
-        )
+)
 
         return redirect('login')
 

@@ -59,19 +59,7 @@ urlpatterns = [
     path('api/add-event/', views.add_event_api),
     path('api/update-event/<int:event_id>/',views.update_event_api),
     path('event/<int:event_id>/',views.event_detail,name='event_detail'),
-    path(
-
-    'change-password/',
-
-    auth_views.PasswordChangeView.as_view(
-
-        template_name='events/change_password.html',
-
-        success_url='/'
-
-    ),
-
-    name='change_password'
-),
-path('change-username/',views.change_username,name='change_username'),
+    path('change-password/',auth_views.PasswordChangeView.as_view(template_name='events/change_password.html',success_url='/'),name='change_password'),
+    path('change-username/',views.change_username,name='change_username'),
+    path('change-password/',views.change_password,name='change_password'),
 ]

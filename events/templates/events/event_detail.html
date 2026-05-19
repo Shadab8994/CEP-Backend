@@ -19,39 +19,16 @@
       </div>
 
       <div class="profile-menu">
+        <button class="profile-btn">👤 {{ request.user.username }}</button>
 
-    <button class="profile-btn">
+        <div class="profile-dropdown">
+          <a href="/change-username/"> Change Username </a>
 
-        👤 {{ request.user.username }}
+          <a href="/change-password/"> Change Password </a>
 
-    </button>
-
-
-    <div class="profile-dropdown">
-
-        <a href="/change-username/">
-
-            Change Username
-
-        </a>
-
-
-        <a href="/change-password/">
-
-            Change Password
-
-        </a>
-
-
-        <a href="{% url 'logout' %}">
-
-            Logout
-
-        </a>
-
-    </div>
-
-</div>
+          <a href="{% url 'logout' %}"> Logout </a>
+        </div>
+      </div>
     </div>
 
     <!-- EVENT DETAIL CARD -->
@@ -79,16 +56,22 @@
 
         {% endif %}
         <!-- REGISTER FORM -->
-
         {% if is_student and event.status == "Upcoming" %}
 
-        <form method="POST">
+        <form method="POST" class="register-form">
           {% csrf_token %}
 
           <input
             type="text"
             name="student_name"
             placeholder="Enter your name"
+            required
+          />
+
+          <input
+            type="email"
+            name="student_email"
+            placeholder="Enter your email"
             required
           />
 

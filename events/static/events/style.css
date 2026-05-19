@@ -774,55 +774,87 @@ a.back-btn:hover {
 
 /* 🔹 FORM INPUTS */
 
-.add-event-card input {
-  width: 25%;
+/* 🔹 CHANGE PASSWORD / USERNAME FORM */
 
-  padding: 14px;
+.add-event-card form {
 
-  border-radius: 10px;
+    display: flex;
 
-  border: 1px solid #d1d5db;
+    flex-direction: column;
 
-  font-size: 15px;
+    gap: 18px;
 
-  outline: none;
-
-  margin: 0 auto;
+    margin-top: 25px;
 }
+
+
+
+/* 🔹 CHANGE PASSWORD / USERNAME INPUTS */
+
+.add-event-card input {
+
+    width: 65%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #d1d5db;
+
+    font-size: 15px;
+
+    outline: none;
+
+    margin: 0 auto;
+
+    display: block;
+}
+
+
 
 /* 🔹 BUTTON AREA */
 
 .form-buttons {
-  display: flex;
 
-  justify-content: center;
+    display: flex;
 
-  gap: 12px;
+    justify-content: center;
 
-  margin-top: 10px;
+    gap: 12px;
+
+    margin-top: 10px;
 }
+
+
 
 /* 🔹 CANCEL BUTTON */
 
 .cancel-btn {
-  background: #ff4d4d;
 
-  color: white;
+    background: #ff4d4d;
 
-  padding: 12px 20px;
+    color: white;
 
-  border-radius: 10px;
+    padding: 12px 20px;
 
-  text-decoration: none;
+    border-radius: 10px;
 
-  font-weight: bold;
+    text-decoration: none;
 
-  transition: 0.3s;
+    font-weight: bold;
+
+    transition: 0.3s;
 }
+
+
 
 .cancel-btn:hover {
-  background: #e63946;
+
+    background: #e63946;
 }
+
+
+
 /* 🔹 CENTER CARD HEADING */
 
 .add-event-card h1 {
@@ -830,4 +862,43 @@ a.back-btn:hover {
     text-align: center;
 
     margin-bottom: 25px;
+}
+
+
+
+/* 🔹 REGISTER FORM */
+
+.register-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+/* 🔹 REGISTER INPUTS */
+
+.register-form input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    display: block;
+}
+
+
+/* 🔹 REGISTER BUTTON */
+
+.register-form button {
+
+    margin-top: 5px;
 }

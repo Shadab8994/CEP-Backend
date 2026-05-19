@@ -24,10 +24,16 @@
         <a href="/admin/"> Admin </a>
       </div>
 
-      <div class="user-info">
-        👤 {{ request.user.username }}
+      <div class="profile-menu">
+        <button class="profile-btn">👤 {{ request.user.username }}</button>
 
-        <a href="{% url 'logout' %}"> Logout </a>
+        <div class="profile-dropdown">
+          <a href="/change-username/"> Change Username </a>
+
+          <a href="/change-password/"> Change Password </a>
+
+          <a href="{% url 'logout' %}"> Logout </a>
+        </div>
       </div>
     </div>
 

@@ -22,6 +22,7 @@ from .models import (
 )
 
 from .serializers import EventSerializer
+from django.contrib.auth import update_session_auth_hash
 
 
 
@@ -348,6 +349,8 @@ def logout_view(request):
 
 
 
+
+
 # 🔹 Add Event
 
 @login_required
@@ -356,6 +359,7 @@ def add_event(request):
     if not is_admin(request.user):
 
         return redirect('home')
+
 
     if request.method == 'POST':
 
@@ -375,6 +379,7 @@ def add_event(request):
             'status'
         )
 
+
         Event.objects.create(
 
             name=name,
@@ -389,7 +394,8 @@ def add_event(request):
 
         )
 
-        return redirect('home')
+        return redirect('/?event_added=true')
+
 
     return render(
         request,
@@ -407,10 +413,12 @@ def edit_event(request, event_id):
 
         return redirect('home')
 
+
     event = get_object_or_404(
         Event,
         id=event_id
     )
+
 
     if request.method == 'POST':
 
@@ -436,7 +444,8 @@ def edit_event(request, event_id):
 
         event.save()
 
-        return redirect('home')
+        return redirect('/?event_updated=true')
+
 
     return render(
         request,
@@ -457,6 +466,7 @@ def delete_event(request, event_id):
 
         return redirect('home')
 
+
     event = get_object_or_404(
         Event,
         id=event_id
@@ -464,8 +474,7 @@ def delete_event(request, event_id):
 
     event.delete()
 
-    return redirect('home')
-
+    return redirect('/?event_deleted=true')
 
 
 # 🔹 Events API
@@ -547,13 +556,15 @@ def event_detail(request, event_id):
             student_name = request.POST.get(
                 "student_name"
             ).strip().lower()
+            student_email = request.POST.get(
+                "student_email"
+            ).strip().lower()
 
 
             already_registered = Registration.objects.filter(
-                student_name=student_name,
+                student_email=student_email,
                 event=event
             ).exists()
-
 
             if already_registered:
 
@@ -565,6 +576,8 @@ def event_detail(request, event_id):
             Registration.objects.create(
 
                 student_name=student_name,
+
+                student_email=student_email,
 
                 event=event
 
@@ -626,11 +639,7 @@ def event_detail(request, event_id):
 
     if request.method == "POST":
 
-        student_name = request.POST.get(
-            "student_name"
-        ).strip().lower()
-
-
+        student_name = request.POST.get("student_name").strip().lower()
         already_registered = Registration.objects.filter(
             student_name=student_name,
             event=event
@@ -715,4 +724,67 @@ def change_username(request):
     return render(
         request,
         'events/change_username.html'
+    )
+# 🔹 Change Password
+
+@login_required
+def change_password(request):
+
+    if request.method == 'POST':
+
+        old_password = request.POST.get(
+            'old_password'
+        )
+
+        new_password1 = request.POST.get(
+            'new_password1'
+        )
+
+        new_password2 = request.POST.get(
+            'new_password2'
+        )
+
+
+        # 🔹 Wrong Old Password
+
+        if not request.user.check_password(
+            old_password
+        ):
+
+            return redirect(
+                '/change-password/?password_error=true'
+            )
+
+
+        # 🔹 Password Mismatch
+
+        if new_password1 != new_password2:
+
+            return redirect(
+                '/change-password/?password_mismatch=true'
+            )
+
+
+        # 🔹 Update Password
+
+        request.user.set_password(
+            new_password1
+        )
+
+        request.user.save()
+
+        update_session_auth_hash(
+            request,
+            request.user
+)
+
+
+        return redirect(
+            '/?password_changed=true'
+        )
+
+
+    return render(
+        request,
+        'events/change_password.html'
     )

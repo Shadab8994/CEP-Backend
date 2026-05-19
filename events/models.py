@@ -40,7 +40,11 @@ class Event(models.Model):
 
 class Registration(models.Model):
 
-    student_name = models.CharField(max_length=100)
+    student_name = models.CharField(
+        max_length=100
+    )
+
+    student_email = models.EmailField()
 
     event = models.ForeignKey(
         Event,
@@ -50,7 +54,6 @@ class Registration(models.Model):
     def __str__(self):
 
         return f"{self.student_name} - {self.event.name}"
-
 
 
 # 🔹 Feedback Model

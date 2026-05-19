@@ -49,12 +49,12 @@
     <!-- SEARCH BAR -->
 
     <form method="GET" class="search-bar">
-      <input
-        type="text"
-        name="q"
-        placeholder="Search events..."
-        value="{{ query }}"
-      />
+     <input
+    type="text"
+    name="q"
+    placeholder="Search events..."
+    value="{{ query|default:'' }}"
+/>
 
       <button type="submit">🔍</button>
     </form>

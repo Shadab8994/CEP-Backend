@@ -1,62 +1,72 @@
 {% load static %}
-    <link rel="stylesheet" href="{% static 'events/style.css' %}">
-</head>
 
-<body>
+<!doctype html>
+<html>
+  <head>
+    <title>Registered Students</title>
 
-<div class="navbar">
+    <link rel="stylesheet" href="{% static 'events/style.css' %}" />
+  </head>
 
-    <div class="logo">
-        🎓 Event Portal
-    </div>
+  <body>
+    <!-- 🔹 NAVBAR -->
 
-    <div class="nav-links">
+    <div class="navbar">
+      <div class="logo">🎓 Event Portal</div>
+
+      <div class="nav-links">
         <a href="/">Home</a>
-        <a href="/registered/">Registered</a>
-        <a href="/view-feedback/">Feedbacks</a>
-        <a href="/admin/">Admin</a>
-    </div>
 
-    <div class="user-info">
-        👤 {{ request.user.username }}
-        <a href="{% url 'logout' %}">Logout</a>
-    </div>
+        <a href="/registered/"> Registered </a>
 
-</div>
+        <a href="/view-feedback/"> Feedbacks </a>
 
+        <a href="/admin/"> Admin </a>
+      </div>
 
-<h1 class="main-title">
-    📋 Registered Students
-</h1>
+      <div class="profile-menu">
+        <button class="profile-btn">👤 {{ request.user.username }}</button>
 
+        <div class="profile-dropdown">
+          <a href="/change-username/"> Change Username </a>
 
-<div class="events-container">
+          <a href="/change-password/"> Change Password </a>
 
-{% for reg in registrations %}
-
-    <div class="event-card">
-
-        <div class="event-title">
-            {{ reg.student_name }}
+          <a href="{% url 'logout' %}"> Logout </a>
         </div>
-
-        <div class="event-info">
-            Registered for: {{ reg.event.name }}
-        </div>
-
+      </div>
     </div>
 
-{% empty %}
+    <!-- 🔹 TITLE -->
 
-    <div class="event-card">
-        <div class="event-info">
-            No registrations available
-        </div>
+    <h1 class="main-title">📋 Registered Students</h1>
+
+    <!-- 🔹 REGISTRATION CONTAINER -->
+
+    <div class="events-container">
+      {% for registration in registrations %}
+
+      <div class="event-card">
+        <!-- EVENT NAME -->
+
+        <div class="event-title">{{ registration.event.name }}</div>
+
+        <!-- STUDENT NAME -->
+
+        <div class="event-info">👤 {{ registration.student_name }}</div>
+
+        <!-- STUDENT EMAIL -->
+
+        <div class="event-info">📧 {{ registration.student_email }}</div>
+      </div>
+
+      {% empty %}
+
+      <div class="event-card">
+        <div class="event-info">No registrations available</div>
+      </div>
+
+      {% endfor %}
     </div>
-
-{% endfor %}
-
-</div>
-
-</body>
+  </body>
 </html>
